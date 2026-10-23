@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Edge + — Add User</title>
+<link rel="stylesheet" href="assets/edge.css" />
+<link rel="stylesheet" href="assets/edge-2.css" />
+<script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+<template id="__bundler_thumbnail"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="20" fill="#312e81"/><path d="M30 28 L52 50 L30 72 Z" fill="#fff"/><path d="M46 28 L68 50 L46 72 Z" fill="#fff" opacity="0.55"/></svg></template>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <linearGradient id="edgegrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#4338ca"/><stop offset="55%" stop-color="#5b6ef0"/><stop offset="100%" stop-color="#38bdf8"/></linearGradient>
+</defs></svg>
+
+<div class="app">
+  <div class="rail"><div class="rail-inner">
+    <svg class="logo-mark" viewBox="0 0 32 32" fill="none"><path d="M6 5 L20 16 L6 27 Z" fill="url(#edgegrad)"/><path d="M16 5 L30 16 L16 27 Z" fill="url(#edgegrad)" opacity="0.55"/></svg>
+    <div class="rail-btn"><i data-lucide="layout-dashboard"></i></div>
+    <div class="rail-btn"><i data-lucide="bell"></i></div>
+    <div class="rail-btn"><i data-lucide="file-text"></i></div>
+    <div class="rail-btn active"><i data-lucide="settings"></i></div>
+    <div class="rail-btn"><i data-lucide="building-2"></i></div>
+    <div class="rail-btn"><i data-lucide="bar-chart-3"></i></div>
+    <div class="rail-spacer"></div>
+    <div class="rail-btn"><i data-lucide="life-buoy"></i></div>
+  </div></div>
+
+  <nav class="nav">
+    <div class="nav-head"><h2>Administration</h2><span class="collapse"><i data-lucide="chevrons-left"></i></span></div>
+    <div class="nav-search"><i data-lucide="search"></i><span>Search…</span></div>
+    <div class="nav-list">
+      <div class="nav-item parent"><i data-lucide="building"></i> Firm Configuration <i class="chev" data-lucide="chevron-right"></i></div>
+      <div class="nav-item parent"><i data-lucide="shield"></i> Roles &amp; Permissions <i class="chev" data-lucide="chevron-right"></i></div>
+      <div class="nav-item parent" style="margin-top:2px"><i data-lucide="users"></i> User Management <i class="chev" data-lucide="chevron-down"></i></div>
+      <div class="nav-sub">
+        <a class="nav-item" href="User Management.html" style="text-decoration:none">Users</a>
+        <div class="nav-item active">Invitations <i class="arrow" data-lucide="arrow-right"></i></div>
+        <a class="nav-item" href="Bulk Import.html" style="text-decoration:none">Bulk Import</a>
+        <div class="nav-item">Entitlement Mapping</div>
+      </div>
+      <div class="nav-item parent" style="margin-top:2px"><i data-lucide="mail"></i> Notifications <i class="chev" data-lucide="chevron-right"></i></div>
+      <div class="nav-item parent"><i data-lucide="scroll-text"></i> Audit Log <i class="chev" data-lucide="chevron-right"></i></div>
+      <div class="nav-item parent"><i data-lucide="sliders-horizontal"></i> Security Policy <i class="chev" data-lucide="chevron-right"></i></div>
+    </div>
+  </nav>
+
+  <main class="main">
+    <header class="topbar">
+      <div class="brand">
+        <svg class="logo-mark" viewBox="0 0 32 32" fill="none"><path d="M6 5 L20 16 L6 27 Z" fill="url(#edgegrad)"/><path d="M16 5 L30 16 L16 27 Z" fill="url(#edgegrad)" opacity="0.55"/></svg>
+        <span class="wordmark">Edge <span class="plus">+</span></span>
+      </div>
+      <div class="firm-chip">
+        <div class="firm-logo">Bath&amp;<br>Body</div>
+        <div><div class="ft">Bath &amp; Body Works</div><div class="fid">BBW-2847-A01</div></div>
+        <i class="chev" data-lucide="chevron-down"></i>
+      </div>
+      <div class="topbar-spacer"></div>
+      <div class="searchbox"><i data-lucide="search"></i><span>Search</span><span class="kbd"><span>⌘</span><span>K</span></span></div>
+      <div class="icon-btn"><i data-lucide="bell"></i><span class="dot"></span></div>
+      <div class="account">
+        <img class="av" src="https://i.pravatar.cc/72?img=47" alt="" />
+        <div><div class="hello">Hello, Karen</div><div class="who">My Account <i data-lucide="chevron-down"></i></div></div>
+      </div>
+    </header>
+
+    <div class="page" style="max-width:1180px">
+
+      <!-- demo state switcher (not part of the screen) -->
+      <div class="state-switch" style="top:74px">
+        <button class="on" onclick="setState('default',this)">Default</button>
+        <button onclick="setState('validation',this)">Validation</button>
+        <button onclick="setState('duplicate',this)">Duplicate email</button>
+        <button onclick="setState('submitting',this)">Submitting</button>
+        <button onclick="setState('sent',this)">Sent</button>
+        <button onclick="setState('undelivered',this)">Undelivered</button>
+      </div>
+      <div class="crumb">
+        <span class="back"><i data-lucide="arrow-left"></i></span>
+        <a href="#">Administration</a><span class="sep">/</span>
+        <a href="User Management.html">User Management</a><span class="sep">/</span>
+        <a href="#">Invitations</a><span class="sep">/</span>
+        <span class="here">Add user</span>
+      </div>
+
+      <div class="titlerow">
+        <div>
+          <div class="title-h">
+            <h1>Add user</h1>
+            <span class="pill indigo"><span class="dotm"></span>SYSADMIN</span>
+          </div>
+          <div class="subtle">A linked contact record is resolved first, then the account is created in <b>Pending first login</b> and an invite is dispatched.</div>
+        </div>
+      </div>
+
+      <!-- ===== default form view ===== -->
+      <div id="formView" class="form-shell" style="grid-template-columns:1fr;max-width:760px">
+        <div class="form-card">
+          <div class="fc-head">
+            <h3>User details</h3>
+            <p>Creating within firm context: <b style="color:var(--ink)">Bath &amp; Body Works · FIRM-BBW-2847</b></p>
+          </div>
+          <div class="form-body">
+            <div class="fgrid">
+              <div class="fg" id="fnGroup">
+                <label>First name <span class="req">*</span></label>
+                <input class="input" id="fnInput" value="Priya" />
+                <div class="err-msg" id="fnErr" style="display:none"><i data-lucide="alert-circle"></i> First name is required.</div>
+              </div>
+              <div class="fg" id="lnGroup">
+                <label>Last name <span class="req">*</span></label>
+                <input class="input" id="lnInput" value="Nair" />
+                <div class="err-msg" id="lnErr" style="display:none"><i data-lucide="alert-circle"></i> Last name is required.</div>
+              </div>
+
+              <div class="fg full" id="emGroup">
+                <label>Email address <span class="req">*</span></label>
+                <div class="input-wrap">
+                  <i class="lead" data-lucide="at-sign"></i>
+                  <input class="input with-lead" id="emInput" value="priya.nair@bbw.com" />
+                </div>
+                <div class="err-msg" id="emErr" style="display:none"><i data-lucide="alert-circle"></i> This email address is already registered in the system. Assign firm access via entitlement mapping.</div>
+              </div>
+
+              <div class="fg">
+                <label>Role / User class <span class="req">*</span></label>
+                <div class="select-wrap">
+                  <select class="input select">
+                    <option>Accounting Manager</option>
+                    <option>Lease Administrator</option>
+                    <option>Real Estate Analyst</option>
+                    <option>Portfolio Manager</option>
+                    <option>IT Administrator</option>
+                  </select>
+                  <i class="caret" data-lucide="chevron-down"></i>
+                </div>
+                <span class="hint">Populated from RBAC configuration for this firm.</span>
+              </div>
+              <div class="fg">
+                <label>Contact type <span class="req">*</span></label>
+                <div class="select-wrap">
+                  <select class="input select">
+                    <option>Internal — Employee</option>
+                    <option>External — Vendor</option>
+                    <option>External — Landlord</option>
+                  </select>
+                  <i class="caret" data-lucide="chevron-down"></i>
+                </div>
+              </div>
+
+              <div class="fg">
+                <label>Firm <span class="req">*</span></label>
+                <input class="input readonly" value="Bath & Body Works" readonly />
+                <span class="hint">Locked to your active session firm context.</span>
+              </div>
+              <div class="fg">
+                <label>Password policy</label>
+                <input class="input readonly" value="BBW-STD-12 (12+ chars)" readonly />
+              </div>
+
+              <div class="fg full">
+                <label>Invite type</label>
+                <div class="seg">
+                  <button class="on"><i data-lucide="link"></i> One-time link</button>
+                  <button><i data-lucide="key-round"></i> Temporary password</button>
+                </div>
+                <span class="hint">One-time link is single-use with a 24-hour TTL. The token is stored hashed — never plaintext.</span>
+              </div>
+
+              <div class="fg full">
+                <div class="check-row on">
+                  <div class="cbox"><i data-lucide="check"></i></div>
+                  <div>
+                    <div class="ct">Send invite email immediately</div>
+                    <div class="cs">Dispatched via the centralized Notifications framework within 10 seconds of creation.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-foot">
+            <span class="worm-note"><i data-lucide="lock"></i> User_Created, Contact_Resolved &amp; Invite_Sent will be audited.</span>
+            <div style="display:flex;gap:10px">
+              <button class="btn">Cancel</button>
+              <button class="btn primary" id="submitBtn" onclick="setState('sent')"><i data-lucide="user-plus"></i> Create &amp; invite</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== success view (SCR-02) ===== -->
+      <div id="successView" style="display:none">
+        <div class="form-card" style="max-width:560px;margin:0 auto">
+          <div class="success-card">
+            <div class="sicon" id="successIcon"><i data-lucide="check"></i></div>
+            <h3 id="successHead">User created &amp; invite sent</h3>
+            <p id="successMsg">Priya Nair has been added to Bath &amp; Body Works. A one-time invite link has been delivered.</p>
+            <div class="user-mini">
+              <div class="uav-lg" style="background:#0d9488;width:42px;height:42px;font-size:15px">PN</div>
+              <div style="flex:1">
+                <div class="uname">Priya Nair</div>
+                <div class="uemail">priya.nair@bbw.com · Accounting Manager</div>
+              </div>
+              <span id="inviteBadge" class="pill green"><span class="dotm"></span>Invite sent</span>
+            </div>
+            <div class="notice warn" id="undelNote" style="display:none;text-align:left;margin-bottom:6px">
+              <i data-lucide="alert-triangle"></i>
+              <div>The user record was created, but the invite email could not be delivered (Notifications service unavailable). Status set to <b>Email undelivered</b> — resend once the service recovers.</div>
+            </div>
+            <div style="display:flex;gap:10px;justify-content:center;margin-top:6px">
+              <button class="btn" onclick="showForm()"><i data-lucide="plus"></i> Create another</button>
+              <a class="btn primary" href="User Management.html" style="text-decoration:none"><i data-lucide="external-link"></i> View user record</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<script>
+  function showFields(state){
+    document.getElementById('formView').style.display = (state==='sent'||state==='undelivered') ? 'none' : 'grid';
+    document.getElementById('successView').style.display = (state==='sent'||state==='undelivered') ? 'block' : 'none';
+  }
+  function setState(state, btn){
+    if(btn){ document.querySelectorAll('.state-switch button').forEach(b=>b.classList.remove('on')); btn.classList.add('on'); }
+    const fn=document.getElementById('fnGroup'), ln=document.getElementById('lnGroup'), em=document.getElementById('emGroup');
+    const fnE=document.getElementById('fnErr'), lnE=document.getElementById('lnErr'), emE=document.getElementById('emErr');
+    const fnI=document.getElementById('fnInput'), lnI=document.getElementById('lnInput'), emI=document.getElementById('emInput');
+    const btnEl=document.getElementById('submitBtn');
+    // reset
+    [fn,ln,em].forEach(g=>g.classList.remove('err'));
+    [fnE,lnE,emE].forEach(e=>e.style.display='none');
+    fnI.value='Priya'; lnI.value='Nair'; emI.value='priya.nair@bbw.com';
+    btnEl.disabled=false; btnEl.innerHTML='<i data-lucide="user-plus"></i> Create &amp; invite';
+
+    if(state==='validation'){
+      fnI.value=''; lnI.value='';
+      fn.classList.add('err'); ln.classList.add('err');
+      fnE.style.display='flex'; lnE.style.display='flex';
+    } else if(state==='duplicate'){
+      em.classList.add('err'); emE.style.display='flex';
+    } else if(state==='submitting'){
+      btnEl.disabled=true; btnEl.innerHTML='<i data-lucide="loader"></i> Creating user…';
+    }
+    showFields(state);
+    if(state==='sent'||state==='undelivered'){
+      const badge=document.getElementById('inviteBadge'), note=document.getElementById('undelNote'), msg=document.getElementById('successMsg'), head=document.getElementById('successHead'), sicon=document.getElementById('successIcon');
+      if(state==='undelivered'){
+        badge.className='pill red'; badge.innerHTML='<span class="dotm"></span>Email undelivered';
+        note.style.display='flex';
+        sicon.style.background='var(--amber-bg)'; sicon.style.borderColor='var(--amber-line)'; sicon.style.color='var(--amber)';
+        sicon.innerHTML='<i data-lucide="alert-triangle"></i>';
+        head.textContent='User created — invite not delivered';
+        msg.textContent='Priya Nair has been added to Bath & Body Works in Pending first login status.';
+      } else {
+        badge.className='pill green'; badge.innerHTML='<span class="dotm"></span>Invite sent';
+        note.style.display='none';
+        sicon.style.background='var(--green-bg)'; sicon.style.borderColor='var(--green-line)'; sicon.style.color='var(--green)';
+        sicon.innerHTML='<i data-lucide="check"></i>';
+        head.textContent='User created & invite sent';
+        msg.textContent='Priya Nair has been added to Bath & Body Works. A one-time invite link has been delivered.';
+      }
+    }
+    lucide.createIcons();
+  }
+  function showForm(){ setState('default'); document.querySelectorAll('.state-switch button').forEach((b,i)=>b.classList.toggle('on', i===0)); }
+  lucide.createIcons();
+</script>
+</body>
+</html>
